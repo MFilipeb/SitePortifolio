@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Stores global settings for the Linktree page
+model Profile {
+  id             String   @id @default(cuid())
+  name           String
+  bio            String?
+  avatarUrl      String?  @default("/perfil.jpg.jpg") // Keep user's uploaded image default
+  bgImageUrl     String?  @default("/perfil.jpg.jpg") // Background image
+  whatsappNumber String?
+  linkedinUrl    String?
+  githubUrl      String?
+  cvUrl          String?  @default("/curriculo.pdf.pdf")
+  updatedAt      DateTime @updatedAt
+}
+
+// Stores individual dynamic links
+model Link {
+  id        String   @id @default(cuid())
+  title     String
+  url       String
+  iconType  String? // e.g., 'document', 'linkedin', 'whatsapp', 'github', 'lightning'
+  isActive  Boolean  @default(true)
+  order     Int      @default(0) // Determines sequence of display
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

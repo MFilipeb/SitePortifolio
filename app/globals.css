@@ -1,26 +1,281 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dynamic Background Aesthetic */
+  --primary: #ffffff;
+  --foreground: #ffffff;
+  /* White text for contrast against dark gradient */
+  --text-muted: rgba(255, 255, 255, 0.85);
+  /* Slightly transparent white for bio */
+
+  /* Buttons Variables */
+  --btn-bg: rgba(255, 255, 255, 0.15);
+  /* Semi-transparent glass effect */
+  --btn-border: #ffffff;
+  --btn-hover-bg: #ffffff;
+  --btn-hover-text: #111111;
+
+  /* Utilities */
+  --radius: 30px;
+  /* Pill-shaped buttons */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  background: var(--background);
+  /* The background image and overlay will be set in the page component directly */
+  background-color: #040d1a;
+  /* Fallback color matching the deep blue/cyan tech gradient */
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Linktree Container */
+.linktree-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  /* Ensure content is above the background */
+}
+
+/* Background Wrapper */
+.bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  opacity: 0.85;
+}
+
+.bg-gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Gradiente moderno puxando para o azul tech / ciano escuro */
+  background: linear-gradient(to bottom,
+      rgba(4, 13, 26, 0.4) 0%,
+      rgba(4, 13, 26, 0.7) 40%,
+      rgba(2, 6, 13, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* Profile Section */
+.profile-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  animation: fadeInDown 0.6s ease-out;
+  /* Push the text down so it aligns with the gradient fade */
+  margin-top: 140px;
+}
+
+/* Hide the circle image since it's the background now */
+.profile-image-container {
+  display: none;
+}
+
+.profile-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  /* Helps text stand out on any background */
+}
+
+.profile-bio {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* WhatsApp Floating Icon */
+.whatsapp-floating {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  transition: transform 0.2s;
+}
+
+.whatsapp-floating:hover {
+  transform: scale(1.1);
+}
+
+/* Links Grid */
+.links-grid {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.link-card {
+  width: 100%;
+  background-color: var(--btn-bg);
+  backdrop-filter: blur(8px);
+  /* Optional: Adds a nice glass effect */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Center content absolutely */
+  transition: all 0.2s ease;
+  min-height: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.link-card:hover {
+  background-color: var(--btn-hover-bg);
+  color: var(--btn-hover-text);
+  transform: scale(1.02);
+}
+
+/* When hover triggers, update the inner text colors */
+.link-card:hover .link-title {
+  color: var(--btn-hover-text);
+}
+
+.link-card:hover .link-subtitle {
+  color: #555555;
+}
+
+/* Link Icon (Pinned to Left) */
+.link-icon {
+  position: absolute;
+  left: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Center Content */
+.link-content {
+  text-align: center;
+  padding: 0 48px;
+  /* Room for absolute icons if they exist */
+}
+
+.link-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: color 0.2s;
+}
+
+.link-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  margin-top: 0.15rem;
+}
+
+.link-options-dots {
+  position: absolute;
+  right: 16px;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+}
+
+.link-card:hover .link-options-dots {
+  color: var(--btn-hover-text);
+}
+
+/* Layout Utilities */
+.section-title {
+  width: 100%;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 1.5rem 0 0.5rem 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Avatar Placeholder (Top left) */
+.header-top-left {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 20;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
