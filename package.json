@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",
-    "next": "latest",
+    "next": "^16.1.6",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
     "eslint": "^9",
-    "eslint-config-next": "latest",
+    "eslint-config-next": "^16.1.6",
     "prisma": "^5.22.0"
   },
   "prisma": {
