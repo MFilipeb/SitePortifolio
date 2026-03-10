@@ -17,9 +17,9 @@ async function main() {
             whatsappNumber: '5521975423002',
             linkedinUrl: 'https://linkedin.com/in/filipemachadobulhoesalves',
             githubUrl: 'https://github.com/filipemachadobulhoes',
-            cvUrl: '/curriculo.pdf.pdf',
-            avatarUrl: '/perfil.jpg.jpg',
-            bgImageUrl: '/perfil.jpg.jpg'
+            cvUrl: '/curriculo.pdf',
+            avatarUrl: null,
+            bgImageUrl: '/tech-bg.jpg'
         }
     });
 
@@ -28,7 +28,7 @@ async function main() {
         data: [
             {
                 title: 'Currículo (CV)',
-                url: '/curriculo.pdf.pdf',
+                url: '/curriculo.pdf',
                 iconType: 'document',
                 isActive: true,
                 order: 1
@@ -64,7 +64,34 @@ async function main() {
         ]
     });
 
-    console.log('Database seeded successfully with Linktree profile and links!');
+    // Create Projects
+    await prisma.project.deleteMany(); // Reset
+    await prisma.project.createMany({
+        data: [
+            {
+                title: 'Price Wise',
+                description: 'Comparador de preços inteligente com IA.',
+                technologies: 'JavaScript, Vanilla CSS, Gemini AI, Web Scraping',
+                howItWasDone: 'Desenvolvido como uma aplicação web dinâmica que utiliza a API do Gemini para processar buscas de produtos em tempo real. Implementa um sistema de alertas de preço e filtros avançados com uma interface premium em Glassmorphism.',
+                achievements: 'Integração de IA generativa para busca semântica, sistema de filtros reativos e design responsivo com micro-animações.',
+                imageUrl: '/pricewise-preview.jpg',
+                linkUrl: '#',
+                order: 1
+            },
+            {
+                title: 'Site Portifolio',
+                description: 'Plataforma de gestão de links e portfólio profissional.',
+                technologies: 'Next.js 15, React 19, Prisma, PostgreSQL, NextAuth',
+                howItWasDone: 'Construído como uma aplicação Full Stack moderna. Utiliza Server Components para performance e NextAuth para um painel administrativo seguro. O banco de dados PostgreSQL (Neon) garante escalabilidade e persistência.',
+                achievements: 'Painel administrativo customizado, sistema de autenticação segura, integração com banco de dados em tempo real e deploy automatizado na Vercel.',
+                imageUrl: '/portfolio-preview.jpg',
+                linkUrl: '#',
+                order: 2
+            }
+        ]
+    });
+
+    console.log('Database seeded successfully with projects, profile and links!');
 }
 
 main()

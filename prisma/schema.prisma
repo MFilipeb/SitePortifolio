@@ -6,7 +6,6 @@ generator client {
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
 }
 
 // Stores global settings for the Linktree page
@@ -14,12 +13,40 @@ model Profile {
   id             String   @id @default(cuid())
   name           String
   bio            String?
-  avatarUrl      String?  @default("/perfil.jpg.jpg") // Keep user's uploaded image default
-  bgImageUrl     String?  @default("/perfil.jpg.jpg") // Background image
+  avatarUrl      String?  @default("/perfil.jpg") // Keep user's uploaded image default
+  bgImageUrl     String?  @default("/perfil.jpg") // Background image
   whatsappNumber String?
   linkedinUrl    String?
   githubUrl      String?
-  cvUrl          String?  @default("/curriculo.pdf.pdf")
+  cvUrl          String?  @default("/curriculo.pdf")
+  
+  // Custom Appearance
+  profileLayout  String   @default("classic") // classic, hero
+  titleStyle     String   @default("text")    // text, logo
+  titleSize      String   @default("large")   // small, large
+  titleColor     String   @default("#ffffff")
+  titleFont      String   @default("Inter")
+  
+  pageFont       String   @default("Inter")
+  pageTextColor  String   @default("#ffffff")
+
+  wallpaperStyle String   @default("image")  // fill, gradient, image
+  bgColor        String   @default("#111111")
+  
+  btnStyle       String   @default("outline")  // solid, outline, glass
+  btnCorner      String   @default("full")   // square, round, rounder, full
+  btnColor       String   @default("#ffffff")
+  btnTextColor   String   @default("#ffffff")
+
+  floatingIcons  String   @default("finance") // finance, construction, none
+
+  // Progress Bar
+  progressShow   Boolean  @default(true)
+  progressLabel  String   @default("Progresso para novo emprego")
+  progressValue  Int      @default(30)
+  progressColor  String   @default("#ffd700")
+  progressBgColor String  @default("rgba(255, 255, 255, 0.1)")
+
   updatedAt      DateTime @updatedAt
 }
 
@@ -33,4 +60,19 @@ model Link {
   order     Int      @default(0) // Determines sequence of display
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+// Stores portfolio projects
+model Project {
+  id           String   @id @default(cuid())
+  title        String
+  description  String?
+  technologies String?  // e.g. "React, Next.js, Prisma"
+  howItWasDone String?  @db.Text
+  achievements String?  @db.Text
+  imageUrl     String?
+  linkUrl      String?
+  isActive     Boolean  @default(true)
+  order        Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 }

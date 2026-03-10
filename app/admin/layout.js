@@ -2,6 +2,7 @@ import './admin.css';
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import LogoutButton from "@/app/components/LogoutButton";
 
 export const metadata = {
     title: 'Linktree Admin',
@@ -36,6 +37,9 @@ export default async function AdminLayout({ children }) {
                         Ver Página Publicada
                     </a>
                 </nav>
+                <div className="sidebar-footer">
+                    <LogoutButton />
+                </div>
             </aside>
 
             {/* Main Content Content */}

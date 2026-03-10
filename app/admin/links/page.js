@@ -9,6 +9,7 @@ export default function LinksAdmin() {
     const [isEditing, setIsEditing] = useState(false);
     const [currentLink, setCurrentLink] = useState(null);
     const [formData, setFormData] = useState({ title: '', url: '', iconType: 'link' });
+    const [message, setMessage] = useState({ type: '', text: '' });
 
     // Fetch Links on load
     useEffect(() => {
@@ -59,16 +60,26 @@ export default function LinksAdmin() {
         const endpoint = currentLink ? `/api/links/${currentLink}` : '/api/links';
 
         try {
-            await fetch(endpoint, {
+            const res = await fetch(endpoint, {
                 method,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
 
+            if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.error || 'Erro ao realizar a operação');
+            }
+
+            setMessage({ type: 'success', text: currentLink ? 'Link atualizado com sucesso!' : 'Novo link criado com sucesso!' });
             await fetchLinks(); // Refresh list
             setIsEditing(false);
+            
+            // Clear success message after 3 seconds
+            setTimeout(() => setMessage({ type: '', text: '' }), 3000);
         } catch (error) {
-            alert('Erro ao salvar o link');
+            console.error(error);
+            setMessage({ type: 'error', text: error.message || 'Erro ao salvar o link' });
         } finally {
             setLoading(false);
         }
@@ -76,14 +87,23 @@ export default function LinksAdmin() {
 
     // Delete Logic
     const handleDelete = async (id) => {
-        if (!confirm('Tem certeza que deseja apagar este link do seu Linktree?')) return;
 
         setLoading(true);
         try {
-            await fetch(`/api/links/${id}`, { method: 'DELETE' });
+            const res = await fetch(`/api/links/${id}`, { method: 'DELETE' });
+            
+            if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.error || 'Erro ao deletar o link');
+            }
+
+            setMessage({ type: 'success', text: 'Link removido com sucesso!' });
             await fetchLinks();
+            
+            setTimeout(() => setMessage({ type: '', text: '' }), 3000);
         } catch (error) {
-            alert('Erro ao apagar link');
+            console.error(error);
+            setMessage({ type: 'error', text: error.message || 'Erro ao apagar link' });
         } finally {
             setLoading(false);
         }
@@ -103,6 +123,28 @@ export default function LinksAdmin() {
                     </button>
                 )}
             </div>
+
+            {message.text && (
+                <div 
+                    className={`alert ${message.type === 'success' ? 'alert-success' : 'alert-error'}`} 
+                    style={{
+                        padding: '12px 16px',
+                        borderRadius: '8px',
+                        marginBottom: '20px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '10px',
+                        backgroundColor: message.type === 'success' ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                        borderLeft: message.type === 'success' ? '4px solid #10b981' : '4px solid #ef4444',
+                        color: message.type === 'success' ? '#10b981' : '#ef4444'
+                    }}
+                >
+                    <span style={{ fontSize: '1.2rem', marginRight: '8px' }}>
+                        {message.type === 'success' ? '✅' : '❌'}
+                    </span>
+                    {message.text}
+                </div>
+            )}
 
             {/* CREATE / EDIT FORM */}
             {isEditing && (
@@ -124,12 +166,12 @@ export default function LinksAdmin() {
                         <div className="form-group">
                             <label>URL de Destino</label>
                             <input
-                                type="url"
+                                type="text"
                                 name="url"
                                 value={formData.url}
                                 onChange={handleInputChange}
                                 required
-                                placeholder="https://..."
+                                placeholder="https://... ou /caminho-local"
                             />
                         </div>
 

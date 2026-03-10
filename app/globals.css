@@ -1,21 +1,5 @@
 :root {
-  /* Dynamic Background Aesthetic */
-  --primary: #ffffff;
-  --foreground: #ffffff;
-  /* White text for contrast against dark gradient */
-  --text-muted: rgba(255, 255, 255, 0.85);
-  /* Slightly transparent white for bio */
-
-  /* Buttons Variables */
-  --btn-bg: rgba(255, 255, 255, 0.15);
-  /* Semi-transparent glass effect */
-  --btn-border: #ffffff;
-  --btn-hover-bg: #ffffff;
-  --btn-hover-text: #111111;
-
-  /* Utilities */
-  --radius: 30px;
-  /* Pill-shaped buttons */
+  --text-muted: rgba(255, 255, 255, 0.7);
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
 }
@@ -27,14 +11,28 @@
 }
 
 body {
-  /* The background image and overlay will be set in the page component directly */
-  background-color: #040d1a;
-  /* Fallback color matching the deep blue/cyan tech gradient */
-  color: var(--foreground);
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+}
+
+/* Base Theme Wrapper injected from React */
+.theme-wrapper {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+  font-family: var(--page-font, 'Inter', sans-serif);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-wrapper[data-wallpaper="gradient"] {
+  background: linear-gradient(135deg, var(--page-bg) 0%, #000 100%);
+}
+
+.theme-wrapper[data-wallpaper="image"],
+.theme-wrapper[data-wallpaper="image_only"],
+.theme-wrapper[data-wallpaper="particles"] {
+  background-color: transparent;
 }
 
 a {
@@ -100,18 +98,23 @@ a {
   margin-top: 140px;
 }
 
-/* Hide the circle image since it's the background now */
 .profile-image-container {
   display: none;
 }
 
+.profile-logo {
+  max-width: 150px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
 .profile-name {
-  font-size: 1.6rem;
+  font-family: var(--title-font, 'Inter', sans-serif);
+  color: var(--title-color, #ffffff);
   font-weight: 700;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  /* Helps text stand out on any background */
 }
 
 .profile-bio {
@@ -146,36 +149,56 @@ a {
 
 .link-card {
   width: 100%;
-  background-color: var(--btn-bg);
-  backdrop-filter: blur(8px);
-  /* Optional: Adds a nice glass effect */
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--btn-border);
-  border-radius: var(--radius);
+  border-radius: var(--btn-radius);
   padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Center content absolutely */
   transition: all 0.2s ease;
   min-height: 60px;
   position: relative;
   overflow: hidden;
 }
 
+/* Button Styles controlled by link-card[data-style="X"] */
+.link-card[data-style="solid"] {
+  background-color: var(--btn-color);
+  border: none;
+}
+.link-card[data-style="solid"] .link-title {
+  color: var(--btn-text);
+}
+.link-card[data-style="solid"] .link-subtitle, 
+.link-card[data-style="solid"] .link-options-dots {
+  color: var(--btn-text);
+  opacity: 0.8;
+}
+
+.link-card[data-style="outline"] {
+  background-color: transparent;
+  border: 1px solid var(--btn-color);
+}
+.link-card[data-style="outline"] .link-title,
+.link-card[data-style="outline"] .link-options-dots,
+.link-card[data-style="outline"] .link-subtitle {
+  color: var(--btn-color);
+}
+
+.link-card[data-style="glass"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.link-card[data-style="glass"] .link-title,
+.link-card[data-style="glass"] .link-options-dots,
+.link-card[data-style="glass"] .link-subtitle {
+  color: var(--btn-color);
+}
+
 .link-card:hover {
-  background-color: var(--btn-hover-bg);
-  color: var(--btn-hover-text);
   transform: scale(1.02);
-}
-
-/* When hover triggers, update the inner text colors */
-.link-card:hover .link-title {
-  color: var(--btn-hover-text);
-}
-
-.link-card:hover .link-subtitle {
-  color: #555555;
+  filter: brightness(1.2);
 }
 
 /* Link Icon (Pinned to Left) */
@@ -199,9 +222,9 @@ a {
 }
 
 .link-title {
+  font-family: var(--page-font, 'Inter', sans-serif);
   font-weight: 600;
   font-size: 1rem;
-  color: var(--foreground);
   transition: color 0.2s;
 }
 

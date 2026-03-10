@@ -18,6 +18,9 @@
     flex-direction: column;
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2);
     z-index: 10;
+    height: 100vh;
+    position: sticky;
+    top: 0;
 }
 
 .sidebar-brand {
@@ -41,6 +44,25 @@
     flex-direction: column;
     padding: 1.5rem 0.75rem;
     gap: 0.5rem;
+    flex: 1;
+}
+
+.sidebar-footer {
+    padding: 1rem 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: auto;
+}
+
+.signout-btn {
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #f87171 !important;
+}
+
+.signout-btn:hover {
+    background: rgba(248, 113, 113, 0.1) !important;
 }
 
 .nav-item {
@@ -69,7 +91,6 @@
 }
 
 .preview-btn {
-    margin-top: auto;
     color: #10b981;
     background: rgba(16, 185, 129, 0.05);
     border: 1px solid rgba(16, 185, 129, 0.1);
