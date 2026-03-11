@@ -11,7 +11,7 @@ export const metadata = {
   openGraph: {
     title: "Filipe Machado | Portfolio & Links",
     description: "Conecte-se e conheça meus projetos em Finanças e Tecnologia.",
-    url: "https://seudominio.com",
+    url: "https://filipemachado-portfolio.vercel.app",
     siteName: "Portfolio Filipe Machado",
     images: [
       {
