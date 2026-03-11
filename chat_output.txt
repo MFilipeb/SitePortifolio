@@ -1,0 +1,104 @@
+=== Iniciando Bateria de Testes de Bate-Papo com a Mary ===
+
+
+🗣️ USER [Mensagem 1/20]: Olá, quem é você?
+🤖 MARY: Olá! Eu sou Mary, a assistente pessoal de carreira e vendedora estratégica de Filipe Machado de Bulhões Alves.
+
+Minha missão é transformar a trajetória, as experiências e os resultados do Filipe em argumentos irrecusáveis para recrutadores, gestores e decisores, destacando o valor único que ele pode agregar.
+
+Como posso ajudar você hoje em relação ao Filipe?
+
+🗣️ USER [Mensagem 2/20]: Me fale um pouco sobre o Filipe Machado.
+🤖 MARY: Com certeza! Permita-me apresentar o Filipe Machado de Bulhões Alves.
+
+Filipe é um profissional com uma combinação de habilidades *singular no mercado*: ele une o **rigor financeiro de um economista com CPA-20**, a **inteligência estratégica de um MBA em IA/Data Science**, e a **expertise em gestão de relacionamento com investidores**.
+
+**Onde ele se destaca?**
+Ele é o profissional ideal para empresas de alto crescimento, especialmente proptechs, que buscam otimizar suas operações financeiras, gerenciar grandes volumes de AUM (Assets Under Management), garantir compliance e, crucialmente, **aplicar automação inteligente para reduzir custos e melhorar a experiência do investidor**.
+
+**Em sua trajetória, Filipe:**
+*   **Gerenciou R$ 500 milhões em AUM** para 400 investidores,
+
+🗣️ USER [Mensagem 3/20]: Quais são as principais áreas de atuação dele?
+🤖 MARY: As principais áreas de atuação do Filipe Machado são onde ele consegue aplicar sua combinação única de habilidades:
+
+1.  **Gestão de Relacionamento com Investidores (Investor Relations)**: Ele se destaca em gerenciar grandes carteiras de investidores (atuais e potenciais), garantindo transparência, compliance em repasses financeiros e construindo relacionamentos estratégicos.
+2.  **Otimização Financeira e Análise de Dados**: Filipe é especialista em estruturar e analisar dados financeiros (KPIs, Yield, DRE por ativo), diagnosticar estruturas de custos e implementar estratégias de precificação, sempre com um olhar orientado a resultados e decisões baseadas em dados.
+3.  **Automação Inteligente de Processos**: Uma de suas maiores forças é a capacidade de identificar gargalos e implementar soluções de automação (usando n8n, APIs) para otimizar operações, reduzir custos (
+
+🗣️ USER [Mensagem 4/20]: Ele tem alguma certificação voltada para o mercado financeiro?
+🤖 MARY: Sim, com certeza! Filipe possui uma certificação muito importante e reconhecida no mercado financeiro:
+
+*   **CPA-20 da ANBIMA**: Esta certificação o habilita a atuar na prospecção ou venda de produtos de investimento para clientes dos segmentos varejo, alta renda, private, corporate e investidores institucionais.
+
+Além disso, ele está concluindo um **MBA em Alta Renda e Banker** pela PARB, o que reforça ainda mais sua especialização e conhecimento aprofundado no segmento de wealth management e atendimento a clientes de alto patrimônio.
+
+🗣️ USER [Mensagem 5/20]: Detalhe o que ele fez na LobieStay, por favor.
+🤖 MARY: Com certeza! Na LobieStay, Filipe atuou como **Investor Relations Manager** de Março de 2025 a Março de 2026, e seus resultados foram bem expressivos:
+
+*   **Gestão de Grande Volume de Ativos e Investidores:** Ele gerenciou uma carteira robusta de **400 investidores**, com um **AUM (Assets Under Management) de R$ 500 milhões**.
+*   **Repasses Financeiros e Compliance:** Foi o responsável pelos repasses financeiros mensais, totalizando **R$ 15 milhões**, garantindo a total conformidade (compliance) com as regulamentações.
+*   **Otimização e Redução de Custos com Automação:** Implementou automações (utilizando n8n e APIs) que resultaram em uma **redução de 15% nos custos de aquisição e manutenção de clientes (CAC)**. Isso demonstra sua capacidade de aplicar tecnologia para eficiência operacional.
+*   **Inteligência de Negócios e Dashboards:** Estruturou **dashboards financeiros** completos, com KPIs (Key Performance Indicators) e indicadores de Yield, fornecendo informações cruciais para a diretoria e o conselho tomarem decisões estratégicas.
+*   **Integração e Interface Multifuncional:** Atuou como um elo vital entre diferentes
+
+🗣️ USER [Mensagem 6/20]: Qual era o tamanho do AUM (Asset Under Management) que ele administrava na LobieStay?
+🤖 MARY: Na LobieStay, Filipe Machado administrava um **AUM (Assets Under Management) de R$ 500 milhões**.
+
+🗣️ USER [Mensagem 7/20]: E sobre automações? Ele sabe mexer com isso?
+🤖 MARY: Sim, **automação é uma das grandes especialidades e diferenciais do Filipe!**
+
+Ele não só sabe mexer, como implementa e utiliza automações de forma estratégica para gerar resultados concretos.
+
+Aqui estão os detalhes:
+
+*   **Resultados Comprovados:** Na LobieStay, ele **reduziu o CAC (Custo de Aquisição de Clientes) e os custos de manutenção de clientes em 15%** especificamente *via automações* utilizando n8n e APIs. Isso mostra que ele não apenas conhece a ferramenta, mas a aplica para otimização e economia.
+*   **Stack Técnico Sólido:** Em seu arsenal técnico, ele domina:
+    *   **n8n:** Uma ferramenta robusta para automação de fluxos de trabalho.
+    *   **WhatsApp Business API:** Para comunicação automatizada e eficiente com clientes.
+    *   **Gmail API:** Para automação de e-mails e processos de comunicação.
+    *   **Blip Desk:** Ferramenta de atendimento e automação de conversas.
+    *   **REST/API:** Conhecimento fundamental para integrar diferentes sistemas e construir automações personalizadas.
+
+Ou seja, Filipe não apenas tem familiaridade, mas profundo conhecimento e experiência prática em usar automações para melhorar a eficiência operacional e a experiência do cliente, especialmente no contexto financeiro e de relacionamento com investidores.
+
+🗣️ USER [Mensagem 8/20]: Legal. Quais ferramentas exatas de automação ele domina?
+🤖 MARY: As ferramentas exatas de automação que Filipe domina são:
+
+*   **n8n**
+*   **WhatsApp Business API**
+*   **Gmail API**
+*   **Blip Desk**
+*   **REST/API** (conhecimento fundamental para integração de sistemas e construção de automações)
+
+🗣️ USER [Mensagem 9/20]: Muito bom. Me conte sobre o período que ele passou na W1 Capital.
+🤖 MARY: Com certeza! O período de Filipe na W1 Capital, em parceria com a XP
+
+🗣️ USER [Mensagem 10/20]: Ele teve resultado prático na XP? Como foi a questão do churn?
+🤖 MARY: Sim, Filipe obteve resultados práticos muito significativos na W1 Capital, em parceria com a XP.
+
+Um dos resultados mais impressionantes e diretos foi a gestão de sua carteira de clientes High Net Worth (Alto Patrimônio). Ele administrou um **AUM (Assets Under Management) de R$ 500 mil**.
+
+E, respondendo especificamente sobre o *churn*: Filipe conseguiu manter o **churn da carteira abaixo de 3%**. Este é um indicador de performance excelente no mercado financeiro, especialmente para um Assessor de Investimentos. Um churn baixo demonstra:
+
+*   **Alta Satisfação do Cliente:** Os investidores estavam satisfeitos com o serviço e os resultados, optando por manter seus investimentos com ele.
+*   **Habilidade de Retenção:** Filipe demonstrou forte capacidade de construir relacionamentos duradouros e de confiança com seus clientes.
+*   **Eficácia na Gestão:** A gestão eficaz dos investimentos e a comunicação transparente contribuíram para a lealdade dos clientes.
+
+Além disso, ele foi responsável pelo ciclo completo de atendimento, desde a prospecção B2C/B2B até o onboarding e rebalanceamento, e distribuiu produtos complexos, o que reforça sua expertise e capacidade de gerar valor para
+
+🗣️ USER [Mensagem 11/20]: Quais produtos de investimento ele distribuía?
+🤖 MARY: Na W1 Capital (XP), Filipe distribuía uma gama de **produtos de investimento complexos**, demonstrando sua expertise e capacidade de atuar com diferentes perfis de investidores e estratégias financeiras.
+
+Os produtos que ele distribuía incluíam:
+
+*   **CRI (Certificado de Recebíveis Imobiliários)**
+*   **CRA (Certificado de Recebíveis do Agronegócio)**
+*   **FIIs (Fundos de Investimento Imobiliário)**
+*   **COE (Certificado de Operações Estruturadas)**
+*   **Multimercado** (Fundos Multimercado)
+
+🗣️ USER [Mensagem 12/20]: O que ele fazia antes disso, na PrecoCerto?
+🚨 ERRO: Falha ao processar a requisição com o Gemini
+
+=== Fim da Bateria de Testes ===

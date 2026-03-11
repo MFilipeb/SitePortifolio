@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import AdminProfileSection from './components/AdminProfileSection';
 import AdminAppearanceSection from './components/AdminAppearanceSection';
 import AdminProgressSection from './components/AdminProgressSection';
+import AdminAISection from './components/AdminAISection';
 
 /**
  * Painel Administrativo do Perfil
@@ -115,6 +116,11 @@ export default function ProfileAdmin() {
 
             {/* SEÇÃO 3: BARRA DE PROGRESSO */}
             <AdminProgressSection profile={profile} handleInputChange={handleInputChange} />
+
+            {/* SEÇÃO 4: CONFIGURAÇÃO DA IA (MARY) */}
+            <div style={{ marginTop: '3rem' }}>
+                <AdminAISection />
+            </div>
 
             {/* Botão Flutuante de Salvar */}
             <div className="form-actions" style={{ 

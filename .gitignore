@@ -41,3 +41,14 @@ yarn-error.log*
 next-env.d.ts
 
 /app/generated/prisma
+
+# test and logs
+test-*.js
+*_log.txt
+*_trace.txt
+git_status.txt
+sdk-test.js*
+chat_log.txt
+test_output.txt
+server_log.txt
+final_trace*.txt
