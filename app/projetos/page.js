@@ -42,6 +42,26 @@ export default function ProjetosPage() {
 
     const projects = [
         {
+            title: 'Investor Relations & Analytics',
+            tag: 'Big Data & Investor Relations',
+            description: 'Painel estruturado para gestão de portfólio imobiliário (R$ 500M+ AUM) focando em performance financeira e KPIs operacionais.',
+            mechanics: [
+                { name: 'Automação & Integração', desc: 'Sincronização de dados via n8n e manipulação de fluxos complexos em tempo real.' },
+                { name: 'Dashboards Dinâmicos', desc: 'Visualização de Yield (retorno) e DREs para reporte de diretoria e investidores.' }
+            ],
+            demo: 'dashboard'
+        },
+        {
+            title: 'Wealth Management Engine',
+            tag: 'Finanças & Alta Renda',
+            description: 'Sistema simulador de alocação de ativos e portfólios focados em performance, adequação de risco (Suitability) e redução de churn.',
+            mechanics: [
+                { name: 'Suitability Assessment', desc: 'Cálculo de perfil de risco para alocação de Fundos Multimercado e Renda Fixa.' },
+                { name: 'Cálculo de Rentabilidade', desc: 'Projeção de ativos dinâmicos maximizando Net New Money e otimizando portfólios.' }
+            ],
+            demo: 'wealth'
+        },
+        {
             title: 'Site Portifólio Profissional',
             tag: 'Full Stack & UI/UX',
             description: 'A plataforma que você está navegando agora. Criada com foco em performance e experiência do usuário premium.',
@@ -138,12 +158,40 @@ export default function ProjetosPage() {
                                             />
                                         </div>
                                     </div>
-                                ) : (
+                                ) : project.demo === 'pricewise' ? (
                                     <div className="demo-content pricewise-demo">
                                         <div className="price-scanner">
                                             <div className="scanner-line"></div>
                                             <div className="price-tag">R$ 1.250,00</div>
                                             <div className="price-analysis">Analisando com IA...</div>
+                                        </div>
+                                    </div>
+                                ) : project.demo === 'dashboard' ? (
+                                    <div className="demo-content dashboard-demo">
+                                        <div className="dash-widget">
+                                            <div className="dash-header">AUM (Ativos Sob Gestão)</div>
+                                            <div className="dash-value">R$ 512M</div>
+                                            <div className="dash-chart">
+                                                <div className="bar b1"></div>
+                                                <div className="bar b2"></div>
+                                                <div className="bar b3"></div>
+                                                <div className="bar b4"></div>
+                                                <div className="bar b5"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="demo-content wealth-demo">
+                                        <div className="wealth-widget">
+                                            <div className="wealth-header">Asset Allocation</div>
+                                            <div className="allocation-bar">
+                                                <div className="segment fixed" style={{ width: '65%' }}>Fixa</div>
+                                                <div className="segment variable" style={{ width: '35%' }}>Var</div>
+                                            </div>
+                                            <div className="wealth-stats">
+                                                <span>Risco Controlado</span>
+                                                <span className="positive">Yield: +12.4%</span>
+                                            </div>
                                         </div>
                                     </div>
                                 )}

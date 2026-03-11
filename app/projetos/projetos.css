@@ -219,6 +219,130 @@
     transform: translateX(-5px);
 }
 
+/* Dashboard Demo */
+.dashboard-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dash-widget {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 250px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.dash-header {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.dash-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #38bdf8;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.dash-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 60px;
+}
+
+.dash-chart .bar {
+    flex: 1;
+    background: linear-gradient(to top, rgba(14, 165, 233, 0.2), #38bdf8);
+    border-radius: 4px 4px 0 0;
+    animation: growBar 2s ease-in-out infinite alternate;
+}
+
+.dash-chart .b1 { height: 40%; animation-delay: 0s; }
+.dash-chart .b2 { height: 60%; animation-delay: 0.2s; }
+.dash-chart .b3 { height: 35%; animation-delay: 0.4s; }
+.dash-chart .b4 { height: 80%; animation-delay: 0.6s; }
+.dash-chart .b5 { height: 100%; animation-delay: 0.8s; }
+
+@keyframes growBar {
+    0% { transform: scaleY(0.7); transform-origin: bottom; }
+    100% { transform: scaleY(1.05); transform-origin: bottom; }
+}
+
+/* Wealth Demo */
+.wealth-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wealth-widget {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 280px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.wealth-header {
+    font-size: 0.9rem;
+    color: #f1f5f9;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.allocation-bar {
+    display: flex;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.2);
+}
+
+.allocation-bar .segment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    transition: width 1s ease;
+}
+
+.segment.fixed {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.segment.variable {
+    background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.wealth-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.wealth-stats .positive {
+    color: #34d399;
+    font-weight: 700;
+}
+
 @media (max-width: 900px) {
     .project-card {
         grid-template-columns: 1fr;
