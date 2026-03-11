@@ -11,24 +11,20 @@ export default function ParticlesBackground() {
       window.particlesJS('particles-js', {
         particles: {
             number: {
-                value: 80,
+                value: 120,
                 density: {
                     enable: true,
                     value_area: 800
                 }
             },
             color: {
-                value: ['#ffd700', '#ffffff', '#ffed4e']
+                value: ['#0ea5e9', '#ffffff', '#38bdf8']
             },
             shape: {
                 type: 'circle',
-                stroke: {
-                    width: 0,
-                    color: '#000000'
-                }
             },
             opacity: {
-                value: 0.5,
+                value: 0.6,
                 random: true,
                 anim: {
                     enable: true,
@@ -38,7 +34,7 @@ export default function ParticlesBackground() {
                 }
             },
             size: {
-                value: 3,
+                value: 2.5,
                 random: true,
                 anim: {
                     enable: true,
@@ -49,32 +45,27 @@ export default function ParticlesBackground() {
             },
             line_linked: {
                 enable: true,
-                distance: 150,
-                color: '#ffffff',
-                opacity: 0.2,
-                width: 1
+                distance: 140,
+                color: '#0ea5e9',
+                opacity: 0.4,
+                width: 1.5
             },
             move: {
                 enable: true,
-                speed: 2,
+                speed: 1,
                 direction: 'none',
-                random: false,
+                random: true,
                 straight: false,
                 out_mode: 'out',
                 bounce: false,
-                attract: {
-                    enable: false,
-                    rotateX: 600,
-                    rotateY: 1200
-                }
             }
         },
         interactivity: {
-            detect_on: 'canvas',
+            detect_on: 'window',
             events: {
                 onhover: {
                     enable: true,
-                    mode: 'repulse'
+                    mode: ['grab', 'bubble']
                 },
                 onclick: {
                     enable: true,
@@ -84,27 +75,20 @@ export default function ParticlesBackground() {
             },
             modes: {
                 grab: {
-                    distance: 140,
+                    distance: 220,
                     line_linked: {
-                        opacity: 1
+                        opacity: 0.8
                     }
                 },
                 bubble: {
-                    distance: 400,
-                    size: 40,
-                    duration: 2,
-                    opacity: 8,
+                    distance: 200,
+                    size: 5,
+                    duration: 0.3,
+                    opacity: 1,
                     speed: 3
-                },
-                repulse: {
-                    distance: 100,
-                    duration: 0.4
                 },
                 push: {
                     particles_nb: 4
-                },
-                remove: {
-                    particles_nb: 2
                 }
             }
         },
@@ -126,7 +110,7 @@ export default function ParticlesBackground() {
           height: '100%',
           top: 0,
           left: 0,
-          zIndex: 0,
+          zIndex: 1,
           pointerEvents: 'none'
       }}></div>
     </>

@@ -3,20 +3,21 @@ export default function JobProgressBar({
     progressLabel = "Progresso para novo emprego",
     progressValue = 30,
     progressColor = "#ffd700",
-    progressBgColor = "rgba(255, 255, 255, 0.1)"
+    progressBgColor = "rgba(255, 255, 255, 0.1)",
+    containerStyle = {}
 }) {
     if (progressShow === false) return null;
 
     // Ensure progress is max 100
     const val = Math.min(Math.max(progressValue, 0), 100);
 
+    const defaultStyle = { margin: '1rem auto', maxWidth: '680px', width: '100%', zIndex: 10, position: 'relative' };
+    const mergedStyle = { ...defaultStyle, ...containerStyle };
+
     return (
-        <div className="progress-container" style={{ margin: '3rem auto', maxWidth: '680px', width: '90%', zIndex: 10, position: 'relative' }}>
-            <div className="progress-label" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                <span style={{ color: '#fff', fontWeight: 600, fontSize: '0.9rem', letterSpacing: '0.5px' }}>
-                    {progressLabel}
-                </span>
-                <span className="text-warning fw-bold" style={{ color: progressColor, fontWeight: 'bold' }}>
+        <div className="progress-container" style={mergedStyle}>
+            <div className="progress-label" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginBottom: '0.5rem' }}>
+                <span className="text-warning fw-bold" style={{ color: progressColor, fontWeight: 'bold', fontSize: '0.85rem' }}>
                     {val}%
                 </span>
             </div>

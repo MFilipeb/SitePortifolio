@@ -1,8 +1,10 @@
+/* Projetos Premium View */
 .projects-container {
-    padding: 3rem 1.5rem;
+    padding: 2.5rem 1.5rem 6rem 1.5rem;
     max-width: 1000px;
     margin: 0 auto;
-    color: #f8fafc;
+    position: relative;
+    z-index: 10;
 }
 
 .projects-header {
@@ -11,127 +13,216 @@
 }
 
 .projects-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--title-color, #ffffff);
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    letter-spacing: -0.04em;
+    margin-bottom: 0.5rem;
 }
 
 .projects-subtitle {
-    color: #94a3b8;
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    font-weight: 500;
 }
 
 .projects-grid {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 3.5rem;
 }
 
 .project-card {
-    background: rgba(30, 41, 59, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    padding: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    animation: fadeUp 0.6s ease-out backwards;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 32px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    transition: transform 0.4s ease, border-color 0.4s ease;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 0.8s ease-out backwards;
 }
 
 .project-card:hover {
-    transform: translateY(-8px);
-    background: rgba(30, 41, 59, 0.6);
-    border-color: rgba(14, 165, 233, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Info Side */
 .project-tag {
-    background: rgba(14, 165, 233, 0.1);
-    color: #0ea5e9;
-    padding: 0.4rem 1rem;
+    background: rgba(14, 165, 233, 0.2);
+    color: #38bdf8;
+    padding: 0.5rem 1.2rem;
     border-radius: 99px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    width: fit-content;
-    border: 1px solid rgba(14, 165, 233, 0.2);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    margin-bottom: 1.5rem;
+    display: inline-block;
 }
 
 .project-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #f1f5f9;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 .project-description {
-    color: #94a3b8;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
     line-height: 1.6;
-    font-size: 1.05rem;
+    margin-bottom: 2rem;
 }
 
-.project-section-title {
-    font-weight: 700;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #0ea5e9;
+.mechanics-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.mechanic-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.mechanic-dot {
+    width: 8px;
+    height: 8px;
+    background: #0ea5e9;
+    border-radius: 50%;
+    margin-top: 6px;
+    box-shadow: 0 0 10px #0ea5e9;
+    flex-shrink: 0;
+}
+
+.mechanic-item strong {
+    color: #ffffff;
+    font-size: 0.95rem;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.mechanic-item p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Demo Side */
+.project-demo-box {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+.demo-content {
+    width: 100%;
+    text-align: center;
+}
+
+.interactive-bar-wrapper {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+}
+
+.demo-slider-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 20;
+    margin: 0;
+}
+
+/* Specific Demos */
+.pricewise-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.price-scanner {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #0ea5e9;
+    box-shadow: 0 0 15px #0ea5e9;
+    animation: scannerMove 3s linear infinite;
+}
+
+.price-tag {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #4ade80;
     margin-bottom: 0.5rem;
 }
 
-.project-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+.price-analysis {
+    font-size: 0.8rem;
+    color: #94a3b8;
 }
 
-.technologies-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.tech-tag {
-    background: rgba(255, 255, 255, 0.05);
-    color: #cbd5e1;
-    padding: 0.25rem 0.75rem;
-    border-radius: 6px;
-    font-size: 0.85rem;
+@keyframes scannerMove {
+    0% { top: 0; }
+    50% { top: 100%; }
+    100% { top: 0; }
 }
 
 .back-link {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    color: #94a3b8;
-    text-decoration: none;
-    margin-bottom: 2rem;
-    font-weight: 500;
-    transition: color 0.2s;
+    gap: 0.6rem;
+    color: white;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.6rem 1.5rem;
+    border-radius: 99px;
+    margin-bottom: 3rem;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .back-link:hover {
-    color: #f8fafc;
+    background: #0ea5e9;
+    transform: translateX(-5px);
 }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@media (max-width: 768px) {
-    .project-details {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 900px) {
     .project-card {
-        padding: 1.5rem;
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2rem;
     }
 }
