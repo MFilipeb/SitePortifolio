@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import ParticlesBackground from './components/ParticlesBackground';
 import FloatingIcons from './components/FloatingIcons';
@@ -7,7 +8,7 @@ import LinkCard from './components/LinkCard';
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  // Busca dados do banco de dados (SQLite via Prisma)
+  // Busca dados do banco de dados (PostgreSQL via Prisma)
   // Esse código roda no servidor de forma segura
   const profile = await prisma.profile.findFirst() || {};
   const links = await prisma.link.findMany({
@@ -33,7 +34,14 @@ export default async function Home() {
       {/* 1. Fundo da Página (Papel de parede) */}
       {(!profile.wallpaperStyle || profile.wallpaperStyle === 'image' || profile.wallpaperStyle === 'particles' || profile.wallpaperStyle === 'image_only') && (
         <div className="bg-wrapper">
-          <img src={profile.bgImageUrl === '/perfil.jpg' ? '/tech-bg.jpg' : (profile.bgImageUrl || '/tech-bg.jpg')} alt="Background" className="bg-image" />
+          <Image
+            src={profile.bgImageUrl === '/perfil.jpg' ? '/tech-bg.jpg' : (profile.bgImageUrl || '/tech-bg.jpg')}
+            alt="Background"
+            fill
+            priority
+            className="bg-image"
+            style={{ objectFit: 'cover' }}
+          />
           <div className="bg-gradient-overlay"></div>
         </div>
       )}
@@ -53,7 +61,7 @@ export default async function Home() {
         
         {/* Cabeçalho (Foto e Nome) */}
         <section className={`profile-section layout-${profile.profileLayout || 'classic'}`}>
-          <img src="/perfil_filipe.jpg" alt="Foto de Perfil" className="profile-logo" />
+          <Image src="/perfil_filipe.jpg" alt="Foto de Perfil" width={180} height={180} priority className="profile-logo" />
           
           <h1 className="profile-name" style={{ fontSize: profile.titleSize === 'large' ? '2.2rem' : '1.6rem' }}>
             {profile.name || 'Filipe Machado'}
@@ -65,6 +73,16 @@ export default async function Home() {
               <span key={i}>{line}<br /></span>
             )) : 'Especialista em Investor Relations'}
           </p>
+
+          {/* Links rápidos de posicionamento */}
+          <div className="profile-quick-links">
+            <a href="/cases" className="profile-secondary-link">
+              Ver meus cases reais
+            </a>
+            <a href="/projetos" className="profile-secondary-link profile-secondary-link--ghost">
+              Ver vitrine de mecânicas
+            </a>
+          </div>
         </section>
 
         {/* Lista de Links (Botões) */}

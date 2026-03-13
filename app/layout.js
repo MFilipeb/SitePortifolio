@@ -11,7 +11,7 @@ export const metadata = {
   authors: [{ name: "Filipe Machado" }],
   openGraph: {
     title: "Filipe Machado | Portfolio & Links",
-    description: "Conecte-se e conheça meus projetos em Finanças e Tecnologia.",
+    description: "Especialista em Investor Relations, Data Science & Wealth Management. Otimizo rentabilidade de portfólios unindo Big Data e Automação.",
     url: "https://filipemachado-portfolio.vercel.app",
     siteName: "Portfolio Filipe Machado",
     images: [
@@ -24,6 +24,12 @@ export const metadata = {
     ],
     locale: "pt_BR",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Filipe Machado | Portfolio",
+    description: "Especialista em IR, Data Science & Wealth Management.",
+    images: ["/tech-bg.jpg"],
   },
   robots: {
     index: true,

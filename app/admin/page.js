@@ -4,6 +4,7 @@ import AdminProfileSection from './components/AdminProfileSection';
 import AdminAppearanceSection from './components/AdminAppearanceSection';
 import AdminProgressSection from './components/AdminProgressSection';
 import AdminAISection from './components/AdminAISection';
+import AdminTabs from './components/AdminTabs';
 
 /**
  * Painel Administrativo do Perfil
@@ -11,6 +12,7 @@ import AdminAISection from './components/AdminAISection';
  * O código foi dividido em pequenas partes (componentes) para ser mais fácil de ler.
  */
 export default function ProfileAdmin() {
+    const [activeTab, setActiveTab] = useState('profile');
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
     const [profile, setProfile] = useState({
@@ -108,19 +110,30 @@ export default function ProfileAdmin() {
                 </h1>
             </div>
 
+            {/* Sistema de Abas */}
+            <AdminTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+
             {/* SEÇÃO 1: INFORMAÇÕES PESSOAIS */}
-            <AdminProfileSection profile={profile} handleInputChange={handleInputChange} />
+            {activeTab === 'profile' && (
+                <AdminProfileSection profile={profile} handleInputChange={handleInputChange} />
+            )}
 
             {/* SEÇÃO 2: ESTILO E CORES */}
-            <AdminAppearanceSection profile={profile} handleInputChange={handleInputChange} />
+            {activeTab === 'appearance' && (
+                <AdminAppearanceSection profile={profile} handleInputChange={handleInputChange} />
+            )}
 
             {/* SEÇÃO 3: BARRA DE PROGRESSO */}
-            <AdminProgressSection profile={profile} handleInputChange={handleInputChange} />
+            {activeTab === 'progress' && (
+                <AdminProgressSection profile={profile} handleInputChange={handleInputChange} />
+            )}
 
             {/* SEÇÃO 4: CONFIGURAÇÃO DA IA (MARY) */}
-            <div style={{ marginTop: '3rem' }}>
-                <AdminAISection />
-            </div>
+            {activeTab === 'ai' && (
+                <div style={{ marginTop: '3rem' }}>
+                    <AdminAISection />
+                </div>
+            )}
 
             {/* Botão Flutuante de Salvar */}
             <div className="form-actions" style={{ 

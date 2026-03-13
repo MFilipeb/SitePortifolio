@@ -1,5 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import ParticlesBackground from '../components/ParticlesBackground';
 import FloatingIcons from '../components/FloatingIcons';
 import JobProgressBar from '../components/JobProgressBar';
@@ -88,11 +90,18 @@ export default function ProjetosPage() {
 
     return (
         <div className="theme-wrapper" style={customStyles} data-wallpaper={profile.wallpaperStyle || 'image'}>
-            
+
             {/* Fundo Dinâmico */}
             {(!profile.wallpaperStyle || profile.wallpaperStyle === 'image' || profile.wallpaperStyle === 'particles' || profile.wallpaperStyle === 'image_only') && (
                 <div className="bg-wrapper">
-                    <img src={profile.bgImageUrl === '/perfil.jpg' ? '/tech-bg.jpg' : (profile.bgImageUrl || '/tech-bg.jpg')} alt="Background" className="bg-image" />
+                    <Image
+                        src={profile.bgImageUrl === '/perfil.jpg' ? '/tech-bg.jpg' : (profile.bgImageUrl || '/tech-bg.jpg')}
+                        alt="Background"
+                        fill
+                        priority
+                        className="bg-image"
+                        style={{ objectFit: 'cover' }}
+                    />
                     <div className="bg-gradient-overlay"></div>
                 </div>
             )}
@@ -106,10 +115,9 @@ export default function ProjetosPage() {
             )}
 
             <main className="projects-container">
-                <a href="/" className="back-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                    Voltar
-                </a>
+                <Link href="/" className="btn-back">
+                    ← Voltar
+                </Link>
 
                 <header className="projects-header">
                     <h1 className="projects-title">Vitrine de Mecânicas</h1>
@@ -123,7 +131,7 @@ export default function ProjetosPage() {
                                 <span className="project-tag">{project.tag}</span>
                                 <h2 className="project-title">{project.title}</h2>
                                 <p className="project-description">{project.description}</p>
-                                
+
                                 <div className="mechanics-list">
                                     <h3 className="project-section-title">Mecânicas Usadas</h3>
                                     {project.mechanics.map((m, i) => (
@@ -143,16 +151,16 @@ export default function ProjetosPage() {
                                 {project.demo === 'portfolio' ? (
                                     <div className="demo-content">
                                         <div className="interactive-bar-wrapper">
-                                            <JobProgressBar 
-                                                progressValue={demoProgress} 
+                                            <JobProgressBar
+                                                progressValue={demoProgress}
                                                 progressColor="#0ea5e9"
                                                 progressBgColor="rgba(255,255,255,0.1)"
                                                 containerStyle={{ margin: '0', width: '100%' }}
                                             />
-                                            <input 
-                                                type="range" 
-                                                min="0" max="100" 
-                                                value={demoProgress} 
+                                            <input
+                                                type="range"
+                                                min="0" max="100"
+                                                value={demoProgress}
                                                 onChange={(e) => setDemoProgress(e.target.value)}
                                                 className="demo-slider-overlay"
                                             />

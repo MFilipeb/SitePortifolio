@@ -44,8 +44,16 @@ Regra: Se o usuário pedir para marcar reunião, use a ferramenta 'get_available
 
         const lastMessage = messages[messages.length - 1].content;
 
-        const { GoogleGenAI } = await import('@google/generative-ai');
-        const genAI = new GoogleGenAI(process.env.GEMINI_API_KEY);
+        if (!process.env.GEMINI_API_KEY) {
+            console.error('GEMINI_API_KEY não configurada nas variáveis de ambiente.');
+            return NextResponse.json(
+                { error: 'Configuração de IA ausente. Defina GEMINI_API_KEY no .env.' },
+                { status: 500 }
+            );
+        }
+
+        const { GoogleGenAI } = await import('@google/genai');
+        const genAI = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
         const model = genAI.getGenerativeModel({
             model: 'gemini-1.5-flash',
             systemInstruction: systemInstruction,

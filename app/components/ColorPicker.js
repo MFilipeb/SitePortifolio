@@ -19,18 +19,18 @@ const PRESET_COLORS = [
 export default function ColorPicker({ name, value, onChange, label, placeholder = "#000000" }) {
     const [color, setColor] = useState(value || '#ffffff');
     const [showPalette, setShowPalette] = useState(false);
-    const [eyeDropperSupported, setEyeDropperSupported] = useState(false);
+    const [eyeDropperSupported, setEyeDropperSupported] = useState(
+        () => typeof window !== 'undefined' && 'EyeDropper' in window
+    );
     const paletteRef = useRef(null);
 
     useEffect(() => {
-        setColor(value || '#ffffff');
-    }, [value]);
+        if (value !== color) {
+            setColor(value || '#ffffff'); // eslint-disable-line react-hooks/set-state-in-effect
+        }
+    }, [value]); // eslint-disable-line react-hooks/exhaustive-deps
 
     useEffect(() => {
-        if (typeof window !== 'undefined' && 'EyeDropper' in window) {
-            setEyeDropperSupported(true);
-        }
-
         const handleClickOutside = (event) => {
             if (paletteRef.current && !paletteRef.current.contains(event.target)) {
                 setShowPalette(false);

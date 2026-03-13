@@ -14,7 +14,7 @@ export default function AgenteConfigPage() {
         <div className="bg-white shadow rounded-lg p-6 border border-gray-200">
           <h2 className="text-xl font-semibold mb-3">1. Homebrew</h2>
           <code className="block bg-gray-900 text-green-400 p-4 rounded text-sm mb-4">
-            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            {`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`}
           </code>
         </div>
 
